@@ -9,6 +9,8 @@
   --color2: #fff;
   --color3: #716f6f;
   --color4: #151515;
+  --color5: #dcdcdc;
+  --color6: #854dff;
 }
 
 .text-S {
@@ -32,6 +34,22 @@
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.32px;
+}
+
+.text-L {
+  color: var(--color4);
+  /* Heading L */
+  font-family: Poppins;
+  font-size: 104px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 110%; /* 114.4px */
+  letter-spacing: -2.08px;
+
+  &--alt {
+    @extend .text-L;
+    color: var(--color6);
+  }
 }
 
 .page {
@@ -74,12 +92,58 @@
     align-items: center;
     gap: 16px;
     border-radius: 8px;
-    border: 1px solid var(--Line, #dcdcdc);
+    border: 1px solid var(--color5);
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      border: 1px solid var(--color6);
+      outline: none;
+    }
   }
 }
 
-.date-btn {
+.btn-div {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+
+  &__btn {
+    display: flex;
+    min-width: 96px;
+    min-height: 96px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-end;
+    border-radius: 216px;
+    background: var(--color6);
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--color4);
+    }
+  }
+
+  &__line {
+    background-color: var(--color5);
+    width: 100%;
+  }
+}
+
+.date-output {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   align-self: stretch;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    text-transform: uppercase;
+  }
 }
