@@ -11,6 +11,12 @@
   --color4: #151515;
   --color5: #dcdcdc;
   --color6: #854dff;
+  --color7: #ff5959;
+}
+
+@mixin custorm-media($width) {
+  @media screen and (max-width: $width) {
+  }
 }
 
 .text-S {
@@ -52,6 +58,21 @@
   }
 }
 
+.error {
+  color: var(--color7);
+
+  /* Body */
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.error-input {
+  border: 1px solid var(--color7) !important;
+}
+
 .page {
   display: flex;
   justify-content: center;
@@ -70,6 +91,9 @@
   flex-shrink: 0;
   background-color: var(--color2);
   border-radius: 24px 24px 200px 24px;
+
+  @include custorm-media(900px) {
+  }
 }
 
 .date-input {
@@ -93,6 +117,10 @@
     gap: 16px;
     border-radius: 8px;
     border: 1px solid var(--color5);
+
+    &::-webkit-inner-spin-button {
+      appearance: none;
+    }
 
     &:hover,
     &:focus {
@@ -123,7 +151,7 @@
 
     &:hover {
       cursor: pointer;
-      color: var(--color4);
+      background: var(--color4);
     }
   }
 
