@@ -1,52 +1,75 @@
 import React, { useState } from "react";
 
 function DateInput(props) {
-  const [date, setDate] = useState({
-    day: "",
-    month: "",
-    year: "",
-  });
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setDate((prevValue) => ({ ...prevValue, [name]: value }));
-  }
-  props.getDate(date);
-
   return (
     <fieldset className="date-input">
       <div className="date-input__item">
-        <label className="text-S">day</label>
+        <label className={props.isDayValid ? "text-S" : "text-S error"}>
+          day
+        </label>
         <input
-          className="date-input__input text-M"
-          type="text"
+          className={
+            props.isDayValid
+              ? "date-input__input text-M"
+              : "date-input__input text-M error-input"
+          }
+          type="number"
+          min={0}
+          max={31}
           placeholder="DD"
           name="day"
-          value={date.day}
-          onChange={handleChange}
+          value={props.date.day}
+          onChange={props.handleChange}
         ></input>
+        <span className={props.isDayValid ? "" : "error"}>
+          {props.isDayValid ? "" : "Must be a valid day"}
+        </span>
       </div>
+
       <div className="date-input__item">
-        <label className="text-S">month</label>
+        <label className={props.isMonthValid ? "text-S" : "text-S error"}>
+          month
+        </label>
         <input
-          className="date-input__input text-M"
-          type="text"
+          className={
+            props.isMonthValid
+              ? "date-input__input text-M"
+              : "date-input__input text-M error-input"
+          }
+          type="number"
+          min={0}
+          max={12}
           placeholder="MM"
           name="month"
-          value={date.month}
-          onChange={handleChange}
+          value={props.date.month}
+          onChange={props.handleChange}
         ></input>
+        <span className={props.isMonthValid ? "" : "error"}>
+          {props.isMonthValid ? "" : "Must be a valid month"}
+        </span>
       </div>
+
       <div className="date-input__item">
-        <label className="text-S">year</label>
+        <label className={props.isYearValid ? "text-S" : "text-S error"}>
+          year
+        </label>
         <input
-          className="date-input__input text-M"
-          type="text"
+          className={
+            props.isYearValid
+              ? "date-input__input text-M"
+              : "date-input__input text-M error-input"
+          }
+          type="number"
+          min={0}
+          max={new Date().getFullYear()}
           placeholder="YYYY"
           name="year"
-          value={date.year}
-          onChange={handleChange}
+          value={props.date.year}
+          onChange={props.handleChange}
         ></input>
+        <span className={props.isYearValid ? "" : "error"}>
+          {props.isYearValid ? "" : "Must be in the past"}
+        </span>
       </div>
     </fieldset>
   );
