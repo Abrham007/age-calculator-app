@@ -73,7 +73,7 @@
     color: var(--color6);
   }
 
-  @include custorm-media(850px) {
+  @include custorm-media(800px) {
     font-size: 56px;
     letter-spacing: -1.12px;
   }
