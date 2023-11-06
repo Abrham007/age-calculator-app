@@ -75,7 +75,10 @@ function App() {
       <div className="btn-div">
         <hr className="btn-div__line"></hr>
         <button className="btn-div__btn" onClick={calcAge}>
-          <img src="assets/images/icon-arrow.svg"></img>
+          <img
+            className="btn-div__svg"
+            src="assets/images/icon-arrow.svg"
+          ></img>
         </button>
       </div>
       <DateOutput age={age} />
