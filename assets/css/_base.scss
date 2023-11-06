@@ -1,0 +1,96 @@
+@use "topography";
+/*<<<----------------  Css Reset  ------------------>>> */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+/*<<<----------------  Css Variables  ------------------>>> */
+:root {
+  --color1: #f0f0f0;
+  --color2: #fff;
+  --color3: #716f6f;
+  --color4: #151515;
+  --color5: #dcdcdc;
+  --color6: #854dff;
+  --color7: #ff5959;
+}
+
+/*<<<----------------  Mixin Media Query   ------------------>>> */
+@mixin custorm-media($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+/*<<<----------------  Base h1...  ------------------>>> */
+.text-S {
+  color: var(--color3);
+  /* Heading S */
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+
+  @include custorm-media(700px) {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+}
+
+.text-M {
+  color: var(--color4);
+  /* Heading M */
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.32px;
+
+  @include custorm-media(700px) {
+    font-size: 20px;
+    letter-spacing: 0.2px;
+  }
+}
+
+.text-L {
+  color: var(--color4);
+  /* Heading L */
+  font-family: Poppins;
+  font-size: 104px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 110%; /* 114.4px */
+  letter-spacing: -2.08px;
+
+  &--alt {
+    @extend .text-L;
+    color: var(--color6);
+  }
+
+  @include custorm-media(800px) {
+    font-size: 56px;
+    letter-spacing: -1.12px;
+  }
+}
+
+/*<<<----------------  Utilities  ------------------>>> */
+.error {
+  color: var(--color7);
+
+  /* Body */
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.error-input {
+  border: 1px solid var(--color7) !important;
+}
