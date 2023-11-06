@@ -1,94 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: 0;
-}
+@use "base";
+@use "topography";
 
-:root {
-  --color1: #f0f0f0;
-  --color2: #fff;
-  --color3: #716f6f;
-  --color4: #151515;
-  --color5: #dcdcdc;
-  --color6: #854dff;
-  --color7: #ff5959;
-}
-
-@mixin custorm-media($width) {
-  @media screen and (max-width: $width) {
-    @content;
-  }
-}
-
-.text-S {
-  color: var(--color3);
-  /* Heading S */
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 3.5px;
-  text-transform: uppercase;
-
-  @include custorm-media(650px) {
-    font-size: 12px;
-    letter-spacing: 3px;
-  }
-}
-
-.text-M {
-  color: var(--color4);
-  /* Heading M */
-  font-family: Poppins;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 0.32px;
-
-  @include custorm-media(650px) {
-    font-size: 20px;
-    letter-spacing: 0.2px;
-  }
-}
-
-.text-L {
-  color: var(--color4);
-  /* Heading L */
-  font-family: Poppins;
-  font-size: 104px;
-  font-style: italic;
-  font-weight: 800;
-  line-height: 110%; /* 114.4px */
-  letter-spacing: -2.08px;
-
-  &--alt {
-    @extend .text-L;
-    color: var(--color6);
-  }
-
-  @include custorm-media(800px) {
-    font-size: 56px;
-    letter-spacing: -1.12px;
-  }
-}
-
-.error {
-  color: var(--color7);
-
-  /* Body */
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: italic;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.error-input {
-  border: 1px solid var(--color7) !important;
-}
-
+/*<<<----------------  Page body  ------------------>>> */
 .page {
   display: flex;
   justify-content: center;
@@ -96,7 +9,11 @@
   min-height: 100vh;
   width: 100vw;
   background-color: var(--color1);
+  overflow-x: hidden;
+  font-family: Poppins;
 }
+
+/*<<<----------------  Main Component  ------------------>>> */
 
 .main {
   display: flex;
@@ -108,17 +25,20 @@
   background-color: var(--color2);
   border-radius: 24px 24px 200px 24px;
 
-  @include custorm-media(1000px) {
+  @include base.custorm-media(1000px) {
     width: 70vw;
     margin: 20px;
   }
 
-  @include custorm-media(500px) {
+  @include base.custorm-media(500px) {
     width: 90vw;
     padding: 24px;
     border-radius: 24px 24px 100px 24px;
+    gap: 32px;
   }
 }
+
+/*<<<----------------  Date Input Section   ------------------>>> */
 
 .date-input {
   display: flex;
@@ -153,15 +73,22 @@
       outline: none;
     }
 
-    @include custorm-media(1000px) {
+    @include base.custorm-media(1000px) {
       width: auto;
       padding: 12px 16px;
     }
+
+    @include base.custorm-media(400px) {
+      width: 75px;
+      padding: 12px 14px;
+    }
   }
-  @include custorm-media(500px) {
+  @include base.custorm-media(500px) {
     gap: 16px;
   }
 }
+
+/*<<<----------------  Middle Button Section   ------------------>>> */
 
 .btn-div {
   display: flex;
@@ -171,7 +98,7 @@
   position: relative;
   height: 96px;
 
-  @include custorm-media(800px) {
+  @include base.custorm-media(800px) {
     justify-content: center;
     height: 64px;
   }
@@ -194,7 +121,7 @@
       background: var(--color4);
     }
 
-    @include custorm-media(800px) {
+    @include base.custorm-media(800px) {
       width: 64px;
       height: 64px;
     }
@@ -204,7 +131,7 @@
     width: 44px;
     height: 44px;
 
-    @include custorm-media(800px) {
+    @include base.custorm-media(800px) {
       width: 24px;
       height: 24px;
     }
@@ -216,6 +143,7 @@
   }
 }
 
+/*<<<----------------  Date Output Section   ------------------>>> */
 .date-output {
   display: flex;
   flex-direction: column;
