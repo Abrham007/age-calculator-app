@@ -64,7 +64,7 @@ function App() {
   }
 
   return (
-    <div className="main">
+    <main className="main">
       <DateInput
         handleChange={handleChange}
         date={date}
@@ -74,15 +74,16 @@ function App() {
       />
       <div className="btn-div">
         <hr className="btn-div__line"></hr>
-        <button className="btn-div__btn" onClick={calcAge}>
+        <div className="btn-div__btn" onClick={calcAge}>
           <img
             className="btn-div__svg"
             src="assets/images/icon-arrow.svg"
+            alt="icon-arrow"
           ></img>
-        </button>
+        </div>
       </div>
       <DateOutput age={age} />
-    </div>
+    </main>
   );
 }
 
